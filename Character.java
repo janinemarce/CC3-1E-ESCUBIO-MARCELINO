@@ -1,12 +1,13 @@
 package rpg;
 public class Character {
-    static Dice dice = new Dice();
+       static Dice dice = new Dice();
     private final String Name;
     private final int strength;
     private final int dexterity;
-    private final int intelligence;
+    public final int intelligence;
     private final int maxLife;
     private int currentLife;
+    public int heal;
 
     public Character(String n, int s, int d, int i){
       this.Name = n;
@@ -25,7 +26,9 @@ public class Character {
          currentLife = 0; //This is zero. [Players can't have negative health] if Player's current life gets lower than zero, it won't return a negative value, instead, it will return a zero value.
             }
         }
-     public void heal(int heal){ //Don't use yet
+     public void heal(int heal){ // this is the heal
+         this.heal = heal; //gets the variable of heal
+         currentLife = currentLife + heal;
      } 
 /* default values from the given Laboratory Exercise #4 */     
      public String getName()
@@ -40,4 +43,5 @@ public class Character {
      {return maxLife;}
      public int getCurrentLife()
      {return currentLife;}
+
 }
